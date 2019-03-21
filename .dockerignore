@@ -1,0 +1,6 @@
+**/obj
+**/bin
+Dockerfile
+yarn.lock
+**/node_modules
+**/Dockerfile
