@@ -32,7 +32,7 @@ COPY modules/TimeSeriesSimulator/application.json modules/TimeSeriesSimulator/bo
 
 EXPOSE 80
 
-#RUN useradd -ms /bin/bash moduleuser
+#RUN useradd -r -ms /bin/bash moduleuser
 #USER moduleuser
 
 ENTRYPOINT ["dotnet", "Core.dll"]

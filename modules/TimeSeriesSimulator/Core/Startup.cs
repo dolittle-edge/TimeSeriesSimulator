@@ -76,6 +76,13 @@ namespace Core
                 {
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
                 });
+
+                app.UseCors(_ => {
+                    _.AllowCredentials();
+                    _.AllowAnyMethod();
+                    _.AllowAnyOrigin();
+                    _.AllowAnyHeader();
+                });
             }
 
             app.UseDefaultFiles();

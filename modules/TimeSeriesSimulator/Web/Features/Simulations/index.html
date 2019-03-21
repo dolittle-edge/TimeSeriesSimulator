@@ -1,6 +1,15 @@
 <template>
     <require from="./index.scss"></require>
     <section class="simulations-index">
+        <form>
+            <label>System</label>
+            <input type="text">
+            <label>Tag</label>
+            <input type="text">
+            <label>Value</label>
+            <input type="text">
+            
+        </form>
         <button command.bind="publishDataPoint">Publish</button>
     </section>
 </template>
