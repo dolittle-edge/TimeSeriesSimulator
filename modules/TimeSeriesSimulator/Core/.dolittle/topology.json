@@ -1,4 +1,9 @@
 {
   "modules": {},
-  "features": {}
+  "features": {
+    "cdbcde6d-79c2-4caf-b272-b7ebd85f0941": {
+      "name": "Simulations",
+      "subFeatures": {}
+    }
+  }
 }

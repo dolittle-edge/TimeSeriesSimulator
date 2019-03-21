@@ -1,1 +1,14 @@
-{}
+{
+  "cdbcde6d-79c2-4caf-b272-b7ebd85f0941": {
+    "commands": {
+      "b8b2cc65-1daf-41b0-895b-34514946f5b8": {
+        "generation": 1,
+        "type": "Domain.Simulations.PublishDataPoint, Domain"
+      }
+    },
+    "events": {},
+    "eventSources": {},
+    "readModels": {},
+    "queries": {}
+  }
+}
