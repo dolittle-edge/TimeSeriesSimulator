@@ -8,9 +8,9 @@ using Concepts;
 namespace Domain.Simulations
 {
     /// <summary>
-    /// Represents the command for publishing a single data point
+    /// Represents the command that starts a simulation
     /// </summary>
-    public class PublishDataPoint : ICommand
+    public class StartSimulation : ICommand
     {
         /// <summary>
         /// The <see cref="global::Concepts.System"/> the data point is coming from
@@ -21,10 +21,5 @@ namespace Domain.Simulations
         /// The <see cref="Tag"/> the data point is coming from
         /// </summary>
         public Tag Tag { get; set; }
-
-        /// <summary>
-        /// Gets or sets the value for the datapoint
-        /// </summary>
-        public double Value { get; set; }
     }
 }

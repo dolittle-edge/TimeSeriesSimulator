@@ -4,14 +4,13 @@
  *--------------------------------------------------------------------------------------------*/
 import { Command } from  '@dolittle/commands';
 
-export class PublishDataPoint extends Command
+export class StartSimulation extends Command
 {
     constructor() {
         super();
-        this.type = 'b8b2cc65-1daf-41b0-895b-34514946f5b8';
+        this.type = '2139b179-10b8-496a-ad8d-d09ff8ab9496';
 
         this.system = '';
         this.tag = '';
-        this.value = 0;
     }
 }

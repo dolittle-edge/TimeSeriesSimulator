@@ -5,15 +5,15 @@
 import { CommandCoordinator } from '@dolittle/commands'
 import { inject } from 'aurelia-framework';
 import { PublishDataPoint } from './PublishDataPoint';
+import { StartSimulation } from './StartSimulation';
 
 @inject(CommandCoordinator)
 export class index {
     #commandCoordinator;
 
-    publishDataPoint;
-
     constructor(commandCoordinator) {
         this.#commandCoordinator = commandCoordinator;
         this.publishDataPoint = new PublishDataPoint();
+        this.startSimulation = new StartSimulation();
     }
 }
