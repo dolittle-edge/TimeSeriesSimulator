@@ -40,7 +40,7 @@ namespace Domain.Simulations
                 Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
             };
 
-            _client.SendEventAsJson("Events", dataPoint);
+            _client.SendEventAsJson("events", dataPoint);
         }
     }
 }
