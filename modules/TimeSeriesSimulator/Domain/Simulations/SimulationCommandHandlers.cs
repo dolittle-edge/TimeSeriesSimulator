@@ -52,7 +52,7 @@ namespace Domain.Simulations
 
                 _logger.Information($"Sending event for system '{command.System}' - tag '{command.Tag}' with value '{dataPoint.Value}'");
 
-                _client.SendEventAsJson("Events", dataPoint);
+                _client.SendEventAsJson("events", dataPoint);
             }, cancellationTokenSource.Token);
         }
     }
