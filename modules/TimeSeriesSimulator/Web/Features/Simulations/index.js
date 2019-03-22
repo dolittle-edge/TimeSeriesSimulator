@@ -11,9 +11,24 @@ import { StartSimulation } from './StartSimulation';
 export class index {
     #commandCoordinator;
 
+    system="SomeSystem";
+    tag="SomeTag";
+
     constructor(commandCoordinator) {
         this.#commandCoordinator = commandCoordinator;
         this.publishDataPoint = new PublishDataPoint();
-        this.startSimulation = new StartSimulation();
+    }
+
+    async publish() {
+        this.publishDataPoint.system = this.system;
+        this.publishDataPoint.tag = this.tag;
+        let result = await this.#commandCoordinator.handle(this.publishDataPoint);
+    }
+
+    async start() {
+        let command = new StartSimulation();
+        command.system = this.system;
+        command.tag = this.tag;
+        let result = await this.#commandCoordinator.handle(command);
     }
 }

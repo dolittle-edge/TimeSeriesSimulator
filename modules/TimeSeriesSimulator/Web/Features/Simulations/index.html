@@ -3,15 +3,14 @@
     <section class="simulations-index">
         <form>
             <label>System</label>
-            <input type="text" value.bind="publishDataPoint.system">
+            <input type="text" value.bind="system">
             <label>Tag</label>
-            <input type="text" value.bind="publishDataPoint.tag">
+            <input type="text" value.bind="tag">
             <label>Value</label>
             <input type="text" value.bind="publishDataPoint.value">
-            
         </form>
-        <button command.bind="publishDataPoint">Publish</button>
+        <button click.delegate="publish()">Publish</button>
         <hr>
-        <button command.bind="startSimulation">Start Timer Simulation</button>
+        <button click.delegate="start()">Start Timer Simulation</button>
     </section>
 </template>
