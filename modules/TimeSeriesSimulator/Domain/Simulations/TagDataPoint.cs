@@ -9,7 +9,7 @@ namespace Domain.Simulations
     /// <summary>
     /// Represents an input message
     /// </summary>
-    public class DataPoint
+    public class TagDataPoint
     {
         /// <summary>
         /// Gets or sets the <see cref="System"/> this value belong to

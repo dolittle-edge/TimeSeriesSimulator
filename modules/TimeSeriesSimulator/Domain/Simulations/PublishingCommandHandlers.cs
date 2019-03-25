@@ -15,13 +15,13 @@ namespace Domain.Simulations
     /// </summary>
     public class PublishingCommandHandlers : ICanHandleCommands
     {
-        readonly IClient _client;
+        readonly ICommunicationClient _client;
 
         /// <summary>
         /// Initializes a new instance of <see cref="PublishingCommandHandlers"/>
         /// </summary>
-        /// <param name="client"><see cref="IClient"/> to use for messaging</param>
-        public PublishingCommandHandlers(IClient client)
+        /// <param name="client"><see cref="ICommunicationClient"/> to use for messaging</param>
+        public PublishingCommandHandlers(ICommunicationClient client)
         {
             _client = client;
         }
@@ -29,10 +29,10 @@ namespace Domain.Simulations
         /// <summary>
         /// Handles publishing of a single data point
         /// </summary>
-        /// <param name="command"><see cref="PublishDataPoint"/> command to handle</param>
-        public void Handle(PublishDataPoint command)
+        /// <param name="command"><see cref="PublishTagDataPoint"/> command to handle</param>
+        public void Handle(PublishTagDataPoint command)
         {
-            var dataPoint = new DataPoint
+            var dataPoint = new TagDataPoint
             {
                 System = command.System,
                 Tag = command.Tag,
@@ -40,7 +40,23 @@ namespace Domain.Simulations
                 Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
             };
 
-            _client.SendEventAsJson("events", dataPoint);
+            _client.SendAsJson("tags", dataPoint);
+        }
+
+        /// <summary>
+        /// Handles publishing of a single data point
+        /// </summary>
+        /// <param name="command"><see cref="PublishTimeSeriesDataPoint"/> command to handle</param>
+        public void Handle(PublishTimeSeriesDataPoint command)
+        {
+            var dataPoint = new DataPoint<double>
+            {
+                TimeSeries = command.TimeSeries,
+                Value = command.Value,
+                Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
+            };
+
+            _client.SendAsJson("timeseries", dataPoint);
         }
     }
 }

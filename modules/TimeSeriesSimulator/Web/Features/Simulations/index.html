@@ -1,16 +1,33 @@
 <template>
     <require from="./index.scss"></require>
     <section class="simulations-index">
-        <form>
-            <label>System</label>
-            <input type="text" value.bind="system">
-            <label>Tag</label>
-            <input type="text" value.bind="tag">
-            <label>Value</label>
-            <input type="text" value.bind="publishDataPoint.value">
-        </form>
-        <button click.delegate="publish()">Publish</button>
-        <hr>
-        <button click.delegate="start()">Start Timer Simulation</button>
+        <table>
+            <tr>
+                <td>
+                    <form>
+                        <label>System</label>
+                        <input type="text" value.bind="system">
+                        <label>Tag</label>
+                        <input type="text" value.bind="tag">
+                        <label>Value</label>
+                        <input type="text" value.bind="publishTagDataPoint.value">
+                    </form>
+                    <button click.delegate="publishTag()">Publish</button>
+                    <hr>
+                    <button click.delegate="startTag()">Start Timer Simulation</button>
+                </td>
+                <td>
+                    <form>
+                        <label>TimeSeries</label>
+                        <input type="text" value.bind="timeSeries">
+                        <label>Value</label>
+                        <input type="text" value.bind="publishTimeSeriesDataPoint.value">
+                    </form>
+                    <button click.delegate="publishTimeSeries()">Publish</button>
+                    <hr>
+                    <button click.delegate="startTimeSeries()">Start Timer Simulation</button>
+                </td>
+            </tr>
+        </table>
     </section>
 </template>

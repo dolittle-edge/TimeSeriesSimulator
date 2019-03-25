@@ -1,13 +1,21 @@
 {
-  "cdbcde6d-79c2-4caf-b272-b7ebd85f0941": {
+  "a9d8421b-96b0-4e48-9288-49b20110973a": {
     "commands": {
-      "b8b2cc65-1daf-41b0-895b-34514946f5b8": {
+      "ed8ee522-e4c1-40be-a63a-69646fc854f1": {
         "generation": 1,
-        "type": "Domain.Simulations.PublishDataPoint, Domain"
+        "type": "Domain.Simulations.PublishTagDataPoint, Domain"
       },
-      "2139b179-10b8-496a-ad8d-d09ff8ab9496": {
+      "8e1b20ff-bc77-4689-84ed-bfbc110be1fd": {
         "generation": 1,
-        "type": "Domain.Simulations.StartSimulation, Domain"
+        "type": "Domain.Simulations.PublishTimeSeriesDataPoint, Domain"
+      },
+      "5468ad8f-4139-40f2-a981-e04dadd667a3": {
+        "generation": 1,
+        "type": "Domain.Simulations.StartTagSimulation, Domain"
+      },
+      "e03a43db-4260-4e88-827c-0a8fafde1e49": {
+        "generation": 1,
+        "type": "Domain.Simulations.StartTimeSeriesSimulation, Domain"
       }
     },
     "events": {},

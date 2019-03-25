@@ -4,23 +4,19 @@
  *--------------------------------------------------------------------------------------------*/
 using Dolittle.Commands;
 using Concepts;
+using Dolittle.Edge.Modules;
 
 namespace Domain.Simulations
 {
     /// <summary>
     /// Represents the command for publishing a single data point
     /// </summary>
-    public class PublishDataPoint : ICommand
+    public class PublishTimeSeriesDataPoint : ICommand
     {
         /// <summary>
-        /// The <see cref="global::Concepts.System"/> the data point is coming from
+        /// The <see cref="TimeSeries"/> the data point is coming from
         /// </summary>
-        public global::Concepts.System System { get; set; }
-
-        /// <summary>
-        /// The <see cref="Tag"/> the data point is coming from
-        /// </summary>
-        public Tag Tag { get; set; }
+        public TimeSeries TimeSeries { get; set; }
 
         /// <summary>
         /// Gets or sets the value for the datapoint

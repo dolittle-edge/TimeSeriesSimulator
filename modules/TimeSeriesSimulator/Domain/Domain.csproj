@@ -13,7 +13,7 @@
     <ItemGroup>
         <PackageReference Include="Dolittle.SDK" Version="2.*" />
 
-        <PackageReference Include="Dolittle.Edge.Modules" Version="1.*" />
+        <PackageReference Include="Dolittle.Edge.Modules" Version="2.*" />
     </ItemGroup>
 
 </Project>

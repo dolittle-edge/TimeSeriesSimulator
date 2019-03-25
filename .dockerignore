@@ -4,3 +4,4 @@ Dockerfile
 yarn.lock
 **/node_modules
 **/Dockerfile
+**/module.json

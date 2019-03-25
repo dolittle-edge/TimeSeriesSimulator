@@ -4,14 +4,12 @@
  *--------------------------------------------------------------------------------------------*/
 import { Command } from  '@dolittle/commands';
 
-export class PublishDataPoint extends Command
+export class StartTimeSeriesSimulation extends Command
 {
     constructor() {
         super();
-        this.type = 'b8b2cc65-1daf-41b0-895b-34514946f5b8';
+        this.type = 'e03a43db-4260-4e88-827c-0a8fafde1e49';
 
-        this.system = '';
-        this.tag = '';
-        this.value = 0;
+        this.timeSeries = '00000000-0000-0000-0000-000000000000';
     }
 }
