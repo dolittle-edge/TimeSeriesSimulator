@@ -36,7 +36,7 @@
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "dolittle/edge-timeseriessimulator:0.0.1-amd64",
+              "image": "dolittle/edge-timeseriessimulator:1.0.9-amd64",
               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"80/tcp\":[{\"HostPort\":\"8181\"}]}}}"
             }
           }

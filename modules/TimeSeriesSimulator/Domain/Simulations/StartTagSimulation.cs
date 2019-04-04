@@ -13,9 +13,9 @@ namespace Domain.Simulations
     public class StartTagSimulation : ICommand
     {
         /// <summary>
-        /// The <see cref="global::Dolittle.Edge.Modules.System"/> the data point is coming from
+        /// The <see cref="ControlSystem"/> the data point is coming from
         /// </summary>
-        public global::Dolittle.Edge.Modules.System System { get; set; }
+        public ControlSystem ControlSystem { get; set; }
 
         /// <summary>
         /// The <see cref="Tag"/> the data point is coming from

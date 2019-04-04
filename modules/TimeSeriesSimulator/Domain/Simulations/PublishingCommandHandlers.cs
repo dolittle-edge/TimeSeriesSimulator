@@ -34,10 +34,10 @@ namespace Domain.Simulations
         {
             var dataPoint = new TagDataPoint<double>
             {
-                System = command.System,
+                ControlSystem = command.ControlSystem,
                 Tag = command.Tag,
                 Value = command.Value,
-                Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
+                Timestamp = Timestamp.UtcNow
             };
 
             _client.SendAsJson("tags", dataPoint);
@@ -53,7 +53,7 @@ namespace Domain.Simulations
             {
                 TimeSeries = command.TimeSeries,
                 Value = command.Value,
-                Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
+                Timestamp = Timestamp.UtcNow
             };
 
             _client.SendAsJson("timeseries", dataPoint);

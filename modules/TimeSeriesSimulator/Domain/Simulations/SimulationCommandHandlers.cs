@@ -44,13 +44,13 @@ namespace Domain.Simulations
 
                 var dataPoint = new TagDataPoint<double>
                 {
-                    System = command.System,
+                    ControlSystem = command.ControlSystem,
                     Tag = command.Tag,
                     Value = _random.NextDouble()*100,
-                    Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
+                    Timestamp = Timestamp.UtcNow
                 };
 
-                _logger.Information($"Sending event for system '{command.System}' - tag '{command.Tag}' with value '{dataPoint.Value}'");
+                _logger.Information($"Sending event for system '{command.ControlSystem}' - tag '{command.Tag}' with value '{dataPoint.Value}'");
 
                 _client.SendAsJson("tags", dataPoint);
             }, cancellationTokenSource.Token);
@@ -69,7 +69,7 @@ namespace Domain.Simulations
                 {
                     TimeSeries = command.TimeSeries,
                     Value = _random.NextDouble()*100,
-                    Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
+                    Timestamp = Timestamp.UtcNow
                 };
 
                 _logger.Information($"Sending event for TimeSeries '{command.TimeSeries}' with value '{dataPoint.Value}'");

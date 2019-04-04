@@ -4,7 +4,7 @@
     "image": {
         "repository": "dolittle/edge-timeseriessimulator",
         "tag": {
-            "version": "1.0.8",
+            "version": "1.0.9",
             "platforms": {
                 "amd64": "./Dockerfile"
             }
