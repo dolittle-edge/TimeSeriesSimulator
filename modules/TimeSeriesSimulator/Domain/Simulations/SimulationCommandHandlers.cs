@@ -42,7 +42,7 @@ namespace Domain.Simulations
             var cancellationTokenSource = new CancellationTokenSource();
             Repeat.Interval(TimeSpan.FromSeconds(1), () => {
 
-                var dataPoint = new TagDataPoint
+                var dataPoint = new TagDataPoint<double>
                 {
                     System = command.System,
                     Tag = command.Tag,

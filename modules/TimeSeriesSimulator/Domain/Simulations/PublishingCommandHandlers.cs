@@ -32,7 +32,7 @@ namespace Domain.Simulations
         /// <param name="command"><see cref="PublishTagDataPoint"/> command to handle</param>
         public void Handle(PublishTagDataPoint command)
         {
-            var dataPoint = new TagDataPoint
+            var dataPoint = new TagDataPoint<double>
             {
                 System = command.System,
                 Tag = command.Tag,

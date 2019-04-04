@@ -16,7 +16,7 @@ export class index {
 
     system="SomeSystem";
     tag="SomeTag";
-    timeSeries="74265f94-f01e-4769-aee9-04fc369ae338";
+    timeSeries="c51ff4fc-13ad-4dae-bc78-e82fa2887847";
 
     constructor(commandCoordinator) {
         this.#commandCoordinator = commandCoordinator;

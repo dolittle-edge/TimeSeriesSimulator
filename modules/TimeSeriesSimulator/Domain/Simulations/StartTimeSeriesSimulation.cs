@@ -4,8 +4,6 @@
  *--------------------------------------------------------------------------------------------*/
 using Dolittle.Commands;
 using Dolittle.Edge.Modules;
-using Concepts;
-
 
 namespace Domain.Simulations
 {
