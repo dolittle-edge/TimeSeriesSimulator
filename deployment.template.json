@@ -51,13 +51,13 @@
           }
         },
         "modules": {
-          "TimeSeriesSimulator": {
+          "Simulator": {
             "version": "1.0",
             "type": "docker",
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "${MODULES.TimeSeriesSimulator}",
+              "image": "${MODULES.Simulator}",
               "createOptions": {
                 "HostConfig": {
                     "PortBindings": {
@@ -78,7 +78,7 @@
       "properties.desired": {
         "schemaVersion": "1.0",
         "routes": {
-          "TimeSeriesSimulatorIoTHub": "FROM /messages/modules/TimeSeriesSimulator/outputs/* INTO $upstream"
+          "SimulatorIoTHub": "FROM /messages/modules/Simulator/outputs/* INTO $upstream"
         },
         "storeAndForwardConfiguration": {
           "timeToLiveSecs": 7200

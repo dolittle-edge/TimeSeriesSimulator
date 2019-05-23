@@ -2,7 +2,7 @@
     "$schema-version": "0.0.1",
     "description": "",
     "image": {
-        "repository": "dolittle/edge-timeseriessimulator",
+        "repository": "dolittle/timeseries-simulator",
         "tag": {
             "version": "1.0.9",
             "platforms": {

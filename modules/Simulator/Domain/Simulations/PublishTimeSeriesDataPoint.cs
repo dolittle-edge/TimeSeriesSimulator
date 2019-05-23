@@ -3,24 +3,19 @@
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 using Dolittle.Commands;
-using Dolittle.Edge.Modules;
+using Dolittle.TimeSeries.Modules;
 
 namespace Domain.Simulations
 {
     /// <summary>
     /// Represents the command for publishing a single data point
     /// </summary>
-    public class PublishTagDataPoint : ICommand
+    public class PublishTimeSeriesDataPoint : ICommand
     {
         /// <summary>
-        /// The <see cref="Dolittle.Edge.Modules.ControlSystem"/> the data point is coming from
+        /// The <see cref="TimeSeries"/> the data point is coming from
         /// </summary>
-        public ControlSystem ControlSystem { get; set; }
-
-        /// <summary>
-        /// The <see cref="Tag"/> the data point is coming from
-        /// </summary>
-        public Tag Tag { get; set; }
+        public TimeSeries TimeSeries { get; set; }
 
         /// <summary>
         /// Gets or sets the value for the datapoint

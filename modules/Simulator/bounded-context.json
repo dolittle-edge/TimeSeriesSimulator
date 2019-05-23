@@ -1,7 +1,7 @@
 {
   "application": "9bcdcf67-f90c-46a3-8219-6d8be04e58f9",
   "boundedContext": "a2987f7d-43f2-83c4-0a1b-bc46ebe74547",
-  "boundedContextName": "TimeSeriesSimulator",
+  "boundedContextName": "Simulator",
   "resources": {
     "readModels": {
       "production": "MongoDB",

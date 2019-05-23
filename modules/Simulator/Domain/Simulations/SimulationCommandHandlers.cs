@@ -5,7 +5,7 @@
 using System;
 using System.Threading;
 using Dolittle.Commands.Handling;
-using Dolittle.Edge.Modules;
+using Dolittle.TimeSeries.Modules;
 using Dolittle.Logging;
 
 namespace Domain.Simulations

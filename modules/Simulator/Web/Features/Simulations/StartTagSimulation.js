@@ -10,7 +10,7 @@ export class StartTagSimulation extends Command
         super();
         this.type = '5468ad8f-4139-40f2-a981-e04dadd667a3';
 
-        this.system = '';
+        this.controlSystem = '';
         this.tag = '';
     }
 }

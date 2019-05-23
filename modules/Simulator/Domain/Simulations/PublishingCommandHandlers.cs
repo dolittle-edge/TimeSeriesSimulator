@@ -5,7 +5,7 @@
 
 using System;
 using Dolittle.Commands.Handling;
-using Dolittle.Edge.Modules;
+using Dolittle.TimeSeries.Modules;
 
 namespace Domain.Simulations
 {

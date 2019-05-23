@@ -3,8 +3,8 @@ FROM microsoft/dotnet:2.1-sdk AS dotnet-build
 WORKDIR /app
 VOLUME [ "/app/data" ]
 COPY Build/MSBuild/* ./Build/MSBuild/
-COPY modules/TimeSeriesSimulator/ ./modules/TimeSeriesSimulator/
-WORKDIR /app/modules/TimeSeriesSimulator/Core
+COPY modules/Simulator/ ./modules/Simulator/
+WORKDIR /app/modules/Simulator/Core
 RUN dotnet restore
 RUN dotnet publish -c Release -o out
 
@@ -12,23 +12,23 @@ RUN dotnet publish -c Release -o out
 FROM node:11.6 AS node-build
 WORKDIR /src
 
-COPY ./modules/TimeSeriesSimulator/Web/package.json ./Web/package.json
+COPY ./modules/Simulator/Web/package.json ./Web/package.json
 WORKDIR /src/Web/
 RUN yarn install
 
 RUN mkdir /src/Core
 RUN mkdir /src/Core/Web
-COPY ./modules/TimeSeriesSimulator/Web/. ./
+COPY ./modules/Simulator/Web/. ./
 WORKDIR /src/Web
 RUN yarn build
 
 # Build runtime images
 FROM microsoft/dotnet:2.1-runtime-stretch-slim
 WORKDIR /app
-COPY --from=dotnet-build /app/modules/TimeSeriesSimulator/Core/out ./
-COPY --from=dotnet-build /app/modules/TimeSeriesSimulator/Core/data ./data
+COPY --from=dotnet-build /app/modules/Simulator/Core/out ./
+COPY --from=dotnet-build /app/modules/Simulator/Core/data ./data
 COPY --from=node-build /src/Core/wwwroot ./wwwroot
-COPY modules/TimeSeriesSimulator/application.json modules/TimeSeriesSimulator/bounded-context.json ./
+COPY modules/Simulator/application.json modules/Simulator/bounded-context.json ./
 
 EXPOSE 80
 
