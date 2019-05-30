@@ -3,8 +3,8 @@ FROM microsoft/dotnet:2.1-sdk AS dotnet-build
 WORKDIR /app
 VOLUME [ "/app/data" ]
 COPY Build/MSBuild/* ./Build/MSBuild/
-COPY modules/Simulator/ ./modules/Simulator/
-WORKDIR /app/modules/Simulator/Core
+COPY Source/ ./Source/
+WORKDIR /app/Source/Core
 RUN dotnet restore
 RUN dotnet publish -c Release -o out
 
@@ -12,23 +12,23 @@ RUN dotnet publish -c Release -o out
 FROM node:11.6 AS node-build
 WORKDIR /src
 
-COPY ./modules/Simulator/Web/package.json ./Web/package.json
+COPY ./Source/Web/package.json ./Web/package.json
 WORKDIR /src/Web/
 RUN yarn install
 
 RUN mkdir /src/Core
 RUN mkdir /src/Core/Web
-COPY ./modules/Simulator/Web/. ./
+COPY ./Source/Web/. ./
 WORKDIR /src/Web
 RUN yarn build
 
 # Build runtime images
 FROM microsoft/dotnet:2.1-runtime-stretch-slim
 WORKDIR /app
-COPY --from=dotnet-build /app/modules/Simulator/Core/out ./
-COPY --from=dotnet-build /app/modules/Simulator/Core/data ./data
+COPY --from=dotnet-build /app/Source/Core/out ./
+COPY --from=dotnet-build /app/Source/Core/data ./data
 COPY --from=node-build /src/Core/wwwroot ./wwwroot
-COPY modules/Simulator/application.json modules/Simulator/bounded-context.json ./
+COPY Source/application.json Source/bounded-context.json ./
 
 EXPOSE 80
 
