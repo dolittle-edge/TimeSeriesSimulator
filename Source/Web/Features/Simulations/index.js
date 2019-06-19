@@ -14,7 +14,7 @@ import { StartTimeSeriesSimulation } from './StartTimeSeriesSimulation';
 export class index {
     #commandCoordinator;
 
-    controlSystem="SomeSystem";
+    source="SomeSource";
     tag="SomeTag";
     timeSeries="c51ff4fc-13ad-4dae-bc78-e82fa2887847";
 
@@ -25,7 +25,7 @@ export class index {
     }
 
     async publishTag() {
-        this.publishTagDataPoint.controlSystem = this.controlSystem;
+        this.publishTagDataPoint.source = this.source;
         this.publishTagDataPoint.tag = this.tag;
         let result = await this.#commandCoordinator.handle(this.publishTagDataPoint);
     }
@@ -38,7 +38,7 @@ export class index {
 
     async startTag() {
         let command = new StartTagSimulation();
-        command.controlSystem = this.controlSystem;
+        command.source = this.source;
         command.tag = this.tag;
         let result = await this.#commandCoordinator.handle(command);
     }

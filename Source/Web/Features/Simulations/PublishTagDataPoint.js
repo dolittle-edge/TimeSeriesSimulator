@@ -10,7 +10,7 @@ export class PublishTagDataPoint extends Command
         super();
         this.type = 'ed8ee522-e4c1-40be-a63a-69646fc854f1';
 
-        this.controlSystem = '';
+        this.source = '';
         this.tag = '';
         this.value = 0;
     }

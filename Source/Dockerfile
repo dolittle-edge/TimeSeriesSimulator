@@ -1,5 +1,19 @@
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 as base
+
+ARG CONFIGURATION=Release
+
+RUN echo Configuration = $CONFIGURATION
+
+RUN if [ "$CONFIGURATION" = "Debug" ] ; then apt-get update && \
+    apt-get install -y --no-install-recommends unzip procps && \
+    rm -rf /var/lib/apt/lists/* \
+    ; fi
+
+RUN useradd -ms /bin/bash moduleuser
+USER moduleuser
+
 # Build the .NET part
-FROM microsoft/dotnet:2.1-sdk AS dotnet-build
+FROM microsoft/dotnet:2.2-sdk AS dotnet-build
 WORKDIR /app
 VOLUME [ "/app/data" ]
 COPY Build/MSBuild/* ./Build/MSBuild/
@@ -23,16 +37,15 @@ WORKDIR /src/Web
 RUN yarn build
 
 # Build runtime images
-FROM microsoft/dotnet:2.1-runtime-stretch-slim
+FROM base
 WORKDIR /app
 COPY --from=dotnet-build /app/Source/Core/out ./
 COPY --from=dotnet-build /app/Source/Core/data ./data
 COPY --from=node-build /src/Core/wwwroot ./wwwroot
 COPY Source/application.json Source/bounded-context.json ./
 
-EXPOSE 80
+EXPOSE 8080
+ENV ASPNETCORE_URLS=http://*:8080
 
-#RUN useradd -r -ms /bin/bash moduleuser
-#USER moduleuser
 
 ENTRYPOINT ["dotnet", "Core.dll"]

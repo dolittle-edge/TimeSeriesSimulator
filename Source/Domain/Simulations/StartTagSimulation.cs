@@ -13,9 +13,9 @@ namespace Domain.Simulations
     public class StartTagSimulation : ICommand
     {
         /// <summary>
-        /// The <see cref="ControlSystem"/> the data point is coming from
+        /// The <see cref="Source"/> the data point is coming from
         /// </summary>
-        public ControlSystem ControlSystem { get; set; }
+        public Source Source { get; set; }
 
         /// <summary>
         /// The <see cref="Tag"/> the data point is coming from

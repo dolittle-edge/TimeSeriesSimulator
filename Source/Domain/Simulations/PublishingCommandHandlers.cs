@@ -34,7 +34,7 @@ namespace Domain.Simulations
         {
             var dataPoint = new TagDataPoint<double>
             {
-                ControlSystem = command.ControlSystem,
+                Source = command.Source,
                 Tag = command.Tag,
                 Value = command.Value,
                 Timestamp = Timestamp.UtcNow

@@ -44,13 +44,13 @@ namespace Domain.Simulations
 
                 var dataPoint = new TagDataPoint<double>
                 {
-                    ControlSystem = command.ControlSystem,
+                    Source = command.Source,
                     Tag = command.Tag,
                     Value = _random.NextDouble()*100,
                     Timestamp = Timestamp.UtcNow
                 };
 
-                _logger.Information($"Sending event for system '{command.ControlSystem}' - tag '{command.Tag}' with value '{dataPoint.Value}'");
+                _logger.Information($"Sending event for system '{command.Source}' - tag '{command.Tag}' with value '{dataPoint.Value}'");
 
                 _client.SendAsJson("tags", dataPoint);
             }, cancellationTokenSource.Token);
