@@ -14,6 +14,9 @@ USER moduleuser
 
 # Build the .NET part
 FROM microsoft/dotnet:2.2-sdk AS dotnet-build
+
+ARG CONFIGURATION
+
 WORKDIR /app
 VOLUME [ "/app/data" ]
 COPY Build/MSBuild/* ./Build/MSBuild/
